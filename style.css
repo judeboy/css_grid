@@ -32,25 +32,60 @@ body{
 /*//vvvvv Grid Style vvvvv//*/
 
 .nav{
-
+  grid-area: nav;
 }
 
 .head{
-
+  grid-area: hd;
 }
 
 .main{
-
+ grid-area: main;
 }
 
 .side{
-
+  grid-area: side;
 }
 
 .foot{
-
+  grid-area: foot;
 }
 
 .grid{
-  
+  height: 100vh;
+  grid-gap: 10px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-areas:
+  'main main hd nav'
+  'main main side side'
+  'main main side side'
+  'foot foot foot foot'
+
+}
+
+@media query and (max-width: 800px){
+  .grid{
+    grid-template-columns: auto 20%;
+    grid-template-areas:
+    'hd hd'
+    'main nav'
+    'main side'
+    'main side'
+    'foot foot'
+    ;
+  }
+}
+
+@media screen and (max-width: 800px){
+.grid{
+  grid-template-columns: auto;
+  grid-template-areas:
+  'hd'
+  'nav'
+  'main'
+  'side'
+  'foot'
+  ;
+}
 }
